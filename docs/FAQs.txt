@@ -1,0 +1,65 @@
+Q: I changed expparX values in my experiment _cfg file, but it doesn't seem to be used when I
+   run the experiment.
+   
+A: Once you start your experiment, AFC generates a control file (which is in the folder you
+   specified with 'control_path' in _cfg or in the current folder (type 'pwd' in MATLAB) using
+   the expparX values in the _cfg file. It has the name 'control_myexperiment_XYZ.dat'.
+   If the control file is already existing, it is not overwritten. You have to delete it in order
+   to let AFC generate a new one with the current values you specified in _cfg.
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: Where are my data files?
+
+A: You probably did not specify a 'results_path' in your experiment _cfg. In this case the
+   results where written to your current working directory.
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: I get the error:
+	
+	def.parrand dimension mismatch
+	
+A: def.parrand has to be a row vector with the number of elements equal to the number of exppars.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: I get the error:
+	
+	exppar dimension mismatch, incorrect number of tracks
+	
+A: One of your exppars has more than one but less columns than def.interleavenum.
+   When interleaved, all exppars have to have def.interleavenum columns or only one column, in
+   which case it is assumed that the specific exppar is the same for all interleaved tracks.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: I would like to have different startvars for the elements of expparN. Is it possible?
+
+A: It is possible to use an additional exppar to define the startvars and to overwrite the values
+   from def.startvar in the _set file of the experiment. The example experiment 'exampleInterleaved'
+   documents how this is done. Please have a look at the 'exampleInterleaved_cfg.m' and 
+   'exampleInterleaved_set.m' file.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+Q: How do I set up the exppar variables for interleaved?
+
+A: When running an interleaved experiment, the exppar variables which should be interleaved 
+	in one run need to be in one column and def.interleavenum needs to equal the number of rows. 
+	The exppars in different columns are used in different runs. The exppars in different rows are 
+	used in the interleaved tracks of one run.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: The red highlighting of the buttons is not in sync with the sound. How can I tweak this?
+
+A: Add def.marktIntervalDelay = 0 in autoexec_cfg.m and tweak the value. If you are using MATLAB 2007b a value of 0 fits.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: Why is AFC using global variables? I don’t like this and it confuses me.
+	
+A: The use of the global structures, e.g. work and def for AFCs internal communication has mainly historical reasons. 
+	Back in 1999 it was the only way to let MATLAB do ‘pointer operations’ on the (back then) large sound data arrays 
+	to enable fast enough processing for running AFC.

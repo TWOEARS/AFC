@@ -1,0 +1,23 @@
+The following lines import AFC .dat files to MATLAB.
+
+Raw read .dat file, e.g.:
+
+rawdata = datread('c:\usr\me\mydata\myexperiment_me_cd1.dat');
+
+If the experiment had more than one exppar, this can be used to filter the data which match
+the value 4 of exppar2 in column 2 of the rawdata matrix:
+
+selectdata = parsedat(rawdata,2,4);
+
+The mean over the results for the same exppar (first column holds exppar, second column holds
+the data value) is calculated:
+
+meandata = allmean(selectdata);
+
+Or for the last X repeatitions:
+
+meandata = psydatm(sortrows(selectdata,1),X);
+
+Or the median and interquartile ranges:
+
+meandata = psydatz(sortrows(selectdata,1),X);

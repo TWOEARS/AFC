@@ -1,0 +1,248 @@
+% This is a list of all configuration variables used by AFC.
+% The defaults are given as defined in default_cfg.
+% All the variables are fields of the structure 'def' used by AFC.
+% They are given in MATLAB synthax as def.variableName = default.  
+
+def.expname = 'example';				% name of experiment
+def.intervalnum = 3;					% number of intervals
+def.ranpos = 0;						% interval which contains the test signal: 0 = random interval, 1 = first interval ...,
+                                    % [x y ...] any mask of intervals to contain test signal (x,y <= def.intervalnum)
+                                    % e.g., [2 3], test signal cannot be in the first interval.
+def.rule = [1 2];					% [up down]-rule: [1 2] = 1-up 2-down
+def.startvar = -6;					% starting value of the tracking variable
+def.expvarunit = 'dB';				% unit of the tracking variable
+def.varstep = [4 2 1];				% [starting stepsize ... minimum stepsize] of the tracking variable
+def.minvar = -100;					% minimum value of the tracking variable
+def.maxvar = 0;						% maximum value of the tracking variable
+def.steprule = -1;					% stepsize is changed after each upper (-1) or lower (1) reversal
+def.reversalnum = 6;                % number of reversals in measurement phase
+def.exppar1 = [0];					% vector containing experimental parameters for which the exp is performed
+                                    % can be exppar1 ... expparN
+                                    % if def.interleaved == 1 is used it is
+                                    % typically a matrix with each column
+                                    % holding all values (== def.interleavenum) that are
+                                    % interleaved in one run and consecutive columns holding the
+                                    % values for consecutive runs
+                         
+def.exppar1unit = 'n/a';			% units of experimental parameter
+                                    % can be exppar1unit ... expparNunit
+def.repeatnum = 1;					% number of repeatitions of the experiment
+def.parrand = 0;					% toggles random presentation of the elements in "exppar" on (1), off(0)
+                                    % must be N element vector if using multiple exppars
+def.mouse = 0;						% enables mouse control (1), or disables mouse control (0)  
+def.markinterval = 1;				% toggles visuell interval marking on (1), off(0)
+def.feedback = 1;					% visuell feedback after response: 0 = no feedback, 1 = correct/false/measurement phase
+def.samplerate = 44100;					% sampling rate in Hz
+def.intervallen = 22050;				% length of each signal-presentation interval in samples (might be overloaded in 'expname_set')
+def.pauselen = 22050;					% length of pauses between signal-presentation intervals in samples (might be overloaded in 'expname_set')
+def.presiglen = 100;					% length of signal leading the first presentation interval in samples (might be overloaded in 'expname_set')
+def.postsiglen = 100;					% length of signal following the last presentation interval in samples (might be overloaded in 'expname_set')
+def.result_path = '';					% where to save results
+def.control_path = '';					% where to save control files
+def.messages = 'default';				% message configuration file, if 'autoSelect' AFC automatically selects depending on expname and language setting, fallback is 'default'. If 'default' or any arbitrary string, the respectively named _msg file is used.
+def.savefcn = 'default';				% function which writes results to disk, if 'default' AFC automatically selects depending on measurement procedure
+def.debug = 0;                          % set 1 for debugging (displays all changible variables during measurement)
+def.interleaved = 0;					% toggles block interleaving on (1), off (0)
+def.interleavenum = 3;					% number of interleaved runs
+def.dither = 0;                         % 1 = enable +- 'ditherdepth' LSB uniformly distributed dither, 0 = disable dither
+def.ditherdepth = 0.5;					% defaults to +- 0.5 LSB uniformly distributed dither
+def.bits = 16;                          % output bit depth: 8 or 16 (might be used to enable 24/32-bit in future matlab versions or with snd_pc/soundmex)
+def.backgroundsig = 0;					% allows a backgroundsignal during output: 0 = no bgs, 1 = bgs is added to the other signals, 2 = bgs and the other signals are multiplied
+def.terminate = 0;                      % terminate execution on min/maxvar hit: 0 = warning, 1 = terminate
+def.allterminate = '0';					% terminate all tracks in an interleaved run if one is skipped
+def.endstop = 6;                        % Allows 6 nominal levels higher/lower than the limits before terminating (if def.terminate = 1) 
+def.allowpredict = 0;					% for signal pregeneration: 0 = no pregen, 1 = pregen
+def.minsounddelay = 0.5;				% forces delay in seconds between button press and sound output (default = 0.5)
+def.windetail = 0;                      % displays additional information in the response window
+def.pre = 0;                            % if 1 the '_pre' script is called prior to the '_user' script. The '_pre' skript is only called once if
+                                        % signal pregeneration is enabled while the '_user' script is called two times (for correct and
+                                        % false response). It might be very efficient to generate the reference signals only once in the '_pre' script.
+def.markpressed = 0;					% marks pressed button 
+def.markcorrect = 0;					% marks correct button 
+def.afcwin = 'afc_win';					% default afc-window function
+def.maxiter = 100;                      % maximum number of iterations
+def.holdtrack = 0;                      % if 1 all tracks are continued until the last is finished
+def.remoteAccessEnable = 0;				% calls the function afc_remoteaccess if existing (after each response and when run is terminated)
+
+%%%% sound output dependent things
+def.soundEnable = 1;					% enables sound output and all related things
+def.externSoundCommand = '';			% '' if empty use def.internSoundCommand
+                                        % 'snd_pc' use Torsten Marquarts GPL 'snd_pc' for up to 32 bit sound and more than 2 devices
+                                        % 'soundmex', 'soundmexpro' use Oldenburg Hoerzentrum 'SoundMex' for up to 32 bit sound and more than 2 devices and sample exact button marking, mixing etc.
+                                        % For downward compatibility
+                                        % 'sndmex' use old Oldenburg Hoerzentrum 'sndmex' for up to 32 bit sound and more than 2 devices and sample exact button marking with old 'light' version
+def.internSoundCommand = 'wavplay';		% MATLABs internal sound command to use: 'wavplay' (default), 'sound', or 'audioplayer
+def.markIntervalDelay = 0;				% tweak the delay of marked buttons (might be required is using audioplayer)
+def.sndmexmark = 0;                     % use sndmex interval marking; WARNING should not be used anymore
+def.soundmexMark = 0;					% use SoundMex interval marking
+def.deviceID = 0;                       % standard device is zero, sndmex(pro) or audioplayer (standard device -1)
+def.continuous = 0;                     % 0 = gated, 1 = add to background, 2 = multiply with bg, sndmex required
+def.bgloopwav = 'fake';					% wav file to loop if def.continuous > 0, sndmex required
+def.bgloopwav_forcerestart = 0;			% forces restart of bgloopwav before each new run
+def.expvarunit = 'na';					% units of expvar
+def.extern_hardware = 'extern_defaulthardware';		% no hardware
+def.checkOutputClip = 2;                % 1 = warning, 2 = error if output is clipped (work.out exceeds [-1 ... 1] range in afc_sound)
+def.language = 'EN';					% EN = english, DE = german, FR = french, DA = danish
+
+% model dependent
+def.modelShowEnable = 0;				% model shows model related things like templates ...
+def.modelDisplayEnable = 1;		 		% if 0, the model_display script is not called (e.g., to suppress response in the workspace window)
+def.afcwinEnable = 1;					% enables afcwin and all related things
+def.modelEnable = 0;					% enables model and all related things
+
+% show dependent
+def.showEnable = 0;                     % enables show and all related things
+def.showbothears = 0;					% if set to 1 shows the signal for both ears (otherwise only one ear signal)
+def.showtrial = 0;                      % shows trial signal after each presentation (0 == off, 1 == on)
+def.showspec = 0;                       % shows spectra from target and references after each trial (0 == off, 1 == on)
+def.showstimuli = 0;					% shows time signal from target and references
+def.showspec_frange = [0 def.samplerate/2];		% range of frequencies to show in Hz
+def.showspec_dbrange = [0 -60];			% dynamic range to show for spectra in dB re 1
+def.showrun = 0;                        % shows development of tracking variable
+
+% constant stimuli
+def.measurementProcedure = 'transformedUpDown';		% transformedUpDown or constantStimuli
+def.practice = 0;					% practise for constantStimuli
+def.expvar = -6;					% presentation levels of variable for constantStimuli
+def.expvarnum = 0;					% number of presentations per level of variable, same index as in expvar. If scalar, the same number of presentations for each level of the variable is used. 
+def.expvarord = 0;					% order of presentation: 0 = random, 1 = order as in expvar 
+def.practicenum = 0;					% number of practice presentations per level of variable, same index as in expvar. If scalar, the same number of presentations for each level of the variable is used. 
+
+% calibration
+def.calScript = '';					% if 'autoSelect' load 'xxx_calibration' file where xxx is the last string passed to afc_main, otherwise load default_calibration;
+                                    % if 'xyz' load 'xyz_calibration' if existing, otherwise load the default  
+
+def.calFirEqualizeFile = '';			% replaces old def.headphoneeq/def.eqfile. Loads .mat file with precomputed FIR filter. The file has to contain a column vector named 'eq'.
+                                        % eq can be one column (both channels are filtered with the same eq) or two columns (left|right filter)
+
+def.calTableEqualize = '';				% equalize based on calTable: '' = not, 'fir'. Generates an FIR filter when the experiment is started
+                                        % You can apply two filters simultaneously, the def.calFirEqualizeFile filter and a runtime generated
+                                        % filter based on the calTable entries
+
+def.calFilterDesignLow	= 125;				% should be >= def.samplerate/def.calFilterDesignFirCoef
+
+def.calFilterDesignUp = 8000;				% should be < def.samplerate/2 or depending on calTable entries
+
+def.calFilterDesignFirCoef = 128;			% number of FIR filter coefficients 64, 128, 256, 512 for runtime
+
+def.calFilterDesignFirPhase = 'minimum';		% 'minimum' for minimum Phase design, 'linear' for linear Phase design
+                                                	
+def.calTableEqualizeRefFreq = 1000; 			% this freq remains unchanged in level if equalize
+                                                	
+def.calTableLookupFreq = 1000; 				% lookup calTable @ specified frequency (could be override in, e.g., _set) and use this value as calibration value
+                                            % Meaningless if def.calTableEqualize is enabled
+		                                	
+def.calTable = [1000 100 100];				% Table with calibration values in columns [freq channel1(left/mono) channel2(right) ...]
+							% Calibration values are dB SPL rms for a digital dB FS (full scale) rms of 0,
+							% or dB SPL peak for a digital dB FS (full scale) peak of 0, e.g., a sine with min/max = -1/1 when played
+							% with sound.m
+							% If just one channel is given, than it is assumed that all channels have the same calibration.
+							% If just one freq is given, than it is assumed that all freqs have the same calibration.
+							% Thus, def.calTable = 100 (only one scalar value) assumes 100 dB SPL rms for all channels at all freqs for a 0 dB FS rms digital signal
+							% played with sound.m
+							% When using calScript, the rms of digital signals in _set and _user must equal the desired output dB SPL rms.
+
+							% A tone of 75 dB SPL rms should have in _user: 20*log10(rms(tone)) = 75.                                            	
+def.calTableExcessLevel = [0 0];			% This is the level is put on top of any selected calTable entry. It is also
+							% put on top of the calTable for the reference freq when runtime
+							% FIR filtering is used. Might be usefull if different hardware attenuations exist
+							% that don't influence the frequency dependency in calTable.
+							% It is possible to override this variable expname_set or expname_user 
+
+% misc
+def.varstepApply = 1;					% 1 = additive (the way it was), 2 = multiplicative (multiply def.startvar with current stepsize on wrong response or divide by current stepsize on correct response, depending on steprule)
+def.exppar1description = 'n/a';			% description of experimental parameter, e.g. used for auto labeling of generic plot tool
+def.expvardescription = 'n/a';			% description of the tracking variable
+
+def.stateLog = 0;                       % enable state logging to disc during measurement
+                                        % The file can be accessed from any other computer to monitor the experiment.
+                                        % The response window and the proceedure is displayed.
+                                        % Use afc_remotemonitor('path to state log file')
+
+def.stateLogPath = '';					% path where state log file 'stateLog.mat' is stored
+
+
+%%%%%%%%% new 17-03-2005 13:30 AO request file naming
+def.fileNamingScheme = '';				% if '' the file name is constructed as always was.
+							% This equals '%E_%S_%U_%C' = expname_subjectname_userpar1..._userparN_condition
+							% '%E_%S_%U[3-]_%C would include only userpars >= 3 in the filename
+							% %U[1-3] stands for userpar1-3, %U[2] for userpar2 only. 
+
+%%%%%%%%% new 04-05-2005 16:55 finally randomize seed in main
+def.randStateRandomize = 1;				% afc_main initializes rand state with rand('state',sum(100*clock)) each time it is started
+																	% also initializes randn('state',sum(100*clock))
+
+%%%%%% new 08.09.2005 14:37
+def.acceptButton = [];					% Vector of intervals accepted as subject response. If empty 1:def.intervalnum is accepted.
+def.skipStartMessage = 0;				% msg.start_msg screen is skipped during repeatitions of an experiment. Avoids that the subject has
+										% to press two buttons in order to continue the experiment
+
+%%%%%% new 08.11.2006 09:34 (Lutz' munich requirements)
+def.winFigurePosition = [];				% default is empty, use to specify the response window position, e.g. if it should be opened on a second screen 
+def.winButtonConfiguration = 0;	% 0 is standard, 1 also shows 'start' and 'end' button for touch screen
+
+%%%%%%% new 07.03.2007 10:52 (Stephan Toebkens request) // Ascii Dec code 16.07.2010 14:02
+def.keyboardResponseButtonMapping = [];			% default is empty. List of button characters that are mapped to the intervals 1 ... N, 
+												% e.g., {'a','d','g'} for a 3-AFC experiment. WARNING: the hardcoded 's' and 'e' (start/end) buttons
+												% must not be used here.
+												% Alternatively, a vector of ASCII codes (decimal) can be used, e.g., [ 28 30 29 ] for Arrow_left, Arrow_up, Arrow_right.
+												% A mixed usage of strings and ASCII codes is not possible.
+%%%%%%% new 31.05.2007 16:37
+def.session_path = '.\sessions';				% where to save session files
+
+%%%%%%% new 22.04.2009 11:41
+def.outputChannels = 2;					% number of signal output channels
+
+%%%%%%%%%% SE 24.04.2012 14:30
+def.trackMap = repmat([0:def.outputChannels-1],1,2);	% how to mix internal soundmexpro tracks, 
+														% default: first block of def.outputChannels is mixed with second block
+%%%%%%%%%% SE 25.02.2013 20:21:55
+def.bgloopwavFullScaleLevel = [];
+
+%%%%%%%%%% SE 25.02.2013 20:21:55
+def.bgloopwavStartoffset = -1;		% start offset of background loop channels, -1 means random, only used by soundmexPro so far
+
+%%%%%%% new 29.07.2009 14:12
+def.stepruleIgnoreReversals = 0;	% number of initial reversals during which the stepsize reduction check
+									% is ignored. If, for example, set to 1, the stepsize cannot be reduced 
+									% on the first reversal when the subject initially responded wrong and 
+									% the very first reversal meets def.steprule = -1 (upper reversal) already
+
+%%%%%%%%% new 21.07.2010 13:02
+def.soundmexproBufferNum = 10;		% Number of ASIO buffers used by soundmexPro. Smaller settings reduce the output delay. 
+
+%%%%%%%%% new 21.07.2010 13:02
+def.variableCheck = 1;				% If set to 1, all entries of structure def are tested for integrity
+
+%%%%%%%%%% SE 09.01.2012 17:46 skipped measurement procedure stuff
+def.skippedMeasurementProcedure = '';	% if set to 'constantStimuli' a skipped transformedUpDown measurement will be continued as constantstimuli
+                                        % can be used to implement Moore's
+                                        % TFS test
+
+def.skippedMeasurementProcedureSavefcn = 'cs_psyfcn';	% save function for alternative measurement procedure
+
+
+%%%%%%%%%% SE 24.04.2012 14:30
+def.outputChannelMap = [0:def.outputChannels-1];	% number of signal output channels
+
+%%%%%%%%%% SE 23.04.2013 15:27
+def.controlFileGenerateOrder = 'afc';		% function to generate array of exppars to initialize control file
+
+% EXPERIMENTAL (WARNING: DO NOT USE OR CHANGE)
+%%%%%%%%%% SE 25.04.2013 08:40
+def.skipDefaultSoundOutput = 0;				% if 1 skip AFC inbuild sound output, soundcard and command are still initialized																					% used to enable custom sound output in a custom procedure
+
+
+% OUTDATED VARIABLES (SHOULD BE REMOVED/REPLACED)
+def.headphoneeq = 0;					% toggles headphone equalization via FIR-filter on/off (1/0)
+def.eqfile = 'fake';					% mat-file containing headphone EQ FIR coefficients as vector eq
+
+
+% NOT SUPPORTED SO FAR
+% PEST - Parameter Estimation and Sequential testing 
+def.PEST_TargetProbability = 0.5;			% point of the psychometric function to converge at
+   							% PEST as described in Taylor & Creelman (1967), JASA
+def.PEST_WaldRange = 1;					% range for Wald sequential likelyhood test
+def.PEST_RepeatLimit = 0;				% number of repeatitions at same level after which the stepsize is reduced
+   							% should be 4 or 8 according to Findlay (1978), Percepion & Psychophysics
+   							% If 0, the original PEST as described in Taylor & Creelman (1967), JASA is used

@@ -1,0 +1,8 @@
+% line# run#
+% command [option] [afc_main_argument1 ... afc_main_argumentN];
+   1 1
+run  2  example   subjectName   cd1
+run  1  example   subjectName   cd2
+%suggestPause NOT IMPLEMENTED YET
+%forcePause 5 NOT IMPLEMENTED YET
+%printMessage NOT IMPLEMENTED YET

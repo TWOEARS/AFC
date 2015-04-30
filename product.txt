@@ -1,0 +1,79 @@
+
+=================================================
+AFC SOFTWARE PACKAGE FOR MATHWORKS MATLAB 
+=================================================
+
+A. GENERAL PRODUCT DESCRIPTION.
+
+AFC is a powerful Toolbox for Mathworks MATLAB. AFC is an entirely free configurable, 
+alternative-forced choice procedure. The configuration of the procedure is highly flexible
+and thus suited for development as well as research projects.
+Stimulus generation and/or processing is digital using standard MATLAB commands. 
+The Software does not require sophisticated hardware und programing knowledge.
+All measurements are configurable using standard MATLAB scripting.
+The signal output only requires a standard Windows sound device and is also working on 
+transportable units like laptop computers.
+The procedure also offers the possibility to invoke a MATLAB scripted model instead of a human
+subject in order to retrieve responses. This allows the user to use exactly the same experiment
+configuration and procedure in data collection and model simulations. 
+
+
+B. BASIC FEATURES.
+
+Free configurable n-Intervall m-Alernative-Forced Choice procedure
+Adaptive transformed n-up m-down rule
+Method of constant stimuli
+Random and fixed presentation order
+Interleaved parameter measurement
+MATLAB-scripting for stimulus generation and processing, as well as for the response window
+Interface to MATLAB scripted model (examples included)
+No additional MATLAB toolboxes required
+24/32-bit sound output using snd_pc (c) Torsten Marquardt (GNU GPL) 
+24/32-bit sound output, continuous signal presentation and advanced features using soundmex/soundmexpro (c) Hoerzentrum Oldenburg
+
+
+C. SYSTEM REQUIREMENTS.
+
+Mathworks MATLAB 5.3 or higher
+Microsoft Windows 98, Windows 2000, Windows XP, Windows Vista, Windows 7/8; MAC OSX, Linux
+Sound device
+Intel Pentium III 450, 256 MB RAM
+
+
+D. COPYRIGHT
+
+AFC Copyright (c) 1999 - 2014 Stephan Ewert. All rights reserved.
+
+The Software is based on earlier versions of AFC/SIM/PSY developed since 1999 by Stephan Ewert.
+AFC 0.93X and SIM 0.91 were partly developed while Stephan Ewert was working
+in the Medizinische Physik at the Universiät Oldenburg, Germany.
+PSY was developed while Stephan Ewert was visiting scientist at MIT, Cambridge, USA.
+Major development steps where achieved while Stephan Ewert was at the Centre for Applied Hearing Research
+at the Technical University of Denmark.
+
+This software package may be used in combination with software technology 
+licensed to the Universität Oldenburg and the Hoerzentrum Oldenburg GmBH. 
+These and all other copyrights are the property of their respective owners.
+
+SND_PC Copyright (c) Torsten Marquardt (GNU GENERAL PUBLIC LICENCE).
+SOUNDMEX(PRO) Copyright (c) 2001 - 2013 Daniel Berg, Hoerzentrum Oldenburg GmBH.
+MATLAB Copyright (c) The Mathworks, Inc.
+MICROSOFT and WINDOWS XX are registered trademarks of Microsoft Corporation.
+
+
+E. CREDITS
+
+I'd like to thank all the people that beta tested earlier versions of the Software, pointed
+me out to bugs or made suggestions for improvements. In particular,
+
+Torsten Dau and Andy Oxenham	- for the confidence to use my first "one-weekend version" even before I used it 
+Andy Oxenham			- for several valuable suggestions
+Joerg Damaschke			- for suggestions and discussion on features
+Ralph Peter Derleth		- for improvements of the initial version of SIM procedure
+Oliver Fobel (geb. Wegner)	- for matlab issues/improvements
+Jesko Verhey									- for improvements (afc_show)
+Thomas Ulrich Christiansen      - for danisch message translation
+Christian Fuellgrabe            - for french message translation
+Daniel Berg (Hoertech)          - for continued support with soundMexPro
+Darren Reed											- for suggestions on the documentation
+ 

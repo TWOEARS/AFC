@@ -1,0 +1,292 @@
+revision 1.40.1 (public release February 2015)
+
+*fixed splashscreen closing error in Matlab 2014b
+*fixed setup GUI fontsize in Matlab 2014b
+*fixed window opening bug in afc_show in Matlab 2014b
+*old afc windows are now closed when afc is started
+*audioplayer is not initialized with deviceID on Mac (Matlab < 2011) and Linux systems
+
+revision 1.40.0 (public release July 2014)
+
+*removed call of afc('setup') when afc is used without input parameters, now only executin help afc
+*fixed issue where afc_show windows not being properly closed if a model is finished
+*added demo and selftest, afc('demo'), afc('selftest')
+*changed to audioplazer as default internal sound command
+*added exampleCustomized as reference for custom msg, win, savefcn file, and for use of custom sound script
+*fixed infinite loop in afc_show for negative varsteps
+*fixed long standing bug that enabled disabled buttons (e.g., def.mouse = 0) again
+*added soundmexpro trackMap initialization in afc_sound
+*added work.presentationOrder to store order of presentations across interleaved tracks
+*final cleanup, added Creative Commons license statement in core afc files
+*revised documentation
+
+revision 1.30.0 (major revison, internal release candidate (RC1) April 2013)
+
+*moved to Creative Commons license
+*removed all p-files
+*added new logo and updated splashscreen
+*added free AFC-specific SoundMexPro
+*added functionality for custom measurement procedures
+*added def.outputChannelMap
+*added def.trackMap
+*added skippedMeasurementProcedure = 'constantStimuli' for 'transformedUpDown'
+*added work.correctResponse for improved 1-I, N-AFC functionality
+*added exampleIdentification
+*added exampleSoundMexPro for demonstration of mixing
+*moved all remaining soundmex specific stuff from afc_work and afc_win to afc_sound
+*changed default def.deviceID to -1 if audioplayer is used
+*fixed bug in afc_session where measurement run counter was not resetted on next run
+*added 'wavplay' as option for def.internSoundCommand
+*added warning for non-functioning button marking on 2011+ Matlab versions when using sound (thanks MATHWORKs)
+*revised setup window
+*added 'setup' command to afc() funcion call
+*finalized soundmexPro support
+*added def.bgloopwavFullScaleLevel to define full scale level of background loop wav files for calibration dependent internal rescaling (requires soundmexPro),
+calibration level has to be defined in work.currentCalLevel (either manually defined in _set) or internally when def.calScript is used    
+*revised documentation
+
+revision 1.20.0
+
+* moved all sound calls to afc_sound
+* added def.internalSoundCommand and use audioplayer as default Matlab sound command
+* added afc.m top-level function to run and script experimental sessions
+* all configuration variables in def are now checked and a warning is issued for unknown or misspelled variables
+
+revision 1.01.3a-f (patch release 07.03.2007 - 2010)
+
+* added def.winFigurePosition to specify the pixel coordinates of the response window on screen. 
+  This can be used to open the response window on a second screen.
+* added def.winButtonConfiguration. If 1 it adds the 'start' and 'end' button to the response window. This is
+  required to operate AFC with a touchscreen only.
+* added def.keyboardResponseButtonMapping to specify a cell array of keyboard characters that are mapped to the
+  interval buttons 1 ... N, e.g., {'a','d','g'} for a 3-AFC experiment. The hardcoded start 's' and end 'e' buttons must not be used.
+* fixed error in default_cfg where def.allterminate was defined as string 
+
+revision 1.01.3 (maintenance release 14.09.2006)
+
+* fixed possibility for lockups in some cases in MATLAB R14 when AFC was terminated by closing 
+  the response window during an experiment.
+* fixed downward compatibility for outdated msg.button1[2]_buttonstring definition, now issueing a warning to replace
+  the old definition by the new msg.buttonString{}.
+* fixed problems with missing default buttonString definition when the response window had more buttons then the experiment had intervals.
+* fixed error in afc_ranpos in 1.01.1 or higher where work.signal was modified, causing problems with some model implementations
+* hopefully finally fixed MATLAB R14 persistent button focus (yellow frame in WinXP)
+
+revision 1.01.2 (maintenance release 01.12.2005)
+
+* fixed error in afc_calsettings that caused wrong/different filters being used for both ears when calScript was
+  enabled and independent filters were used for each ear in combination with the settings def.calTableEqualize = 'fir' 
+  and def.calFilterDesignFirPhase = 'minimum'.
+* fixed erratic behaviour of remote monitoring 
+* fixed error in default_cfg where def.expvarunit was set to 'n/a' when def.expvardescription was not defined 
+* error messages in afc_process are now MATLAB R11.1 compatible
+
+revision 1.01.1 (09.09.2005)
+
+* fixed highlighting of last pressed button when using MATLAB R14
+* start message is again displayed when a new run during an ongoing experiment is started 
+ (can be disabled using def.skipStartMessage = 1)
+* the target interval can now be limited to a subgroup of the intervals using the vector form of,
+  e.g., def.ranpos = [2 3]
+* def.acceptButton defines which intervals are accepted as valid response, e.g., def.acceptButton = [2 3]
+* the response button strings can now be defined in msg.buttonString
+* added new example3I2AFC (three-interval, two-alternative forced choice)
+* fixed distribution package so that configuration screen is displayed on first start
+
+revision 1.01.0
+
+* enhanced MATLAB R14 compatibility
+* start message is no longer displayed when a new run during an ongoing experiment is started 
+ (only one button press required to start next measurement run)
+
+revision 1.00.5
+
+* added support for soundMex2
+* MATLAB R14 and lower compatible
+* enhanced configuration screen including soundMex2 option
+
+revision 1.00.2-1.00.4
+
+* added configuration screen
+* added autoexec_cfg to define machine/lab dependent defaults
+* added splash screen including credits
+* added logfile support to monitor running measurements from remote computer
+* restored MATLAB R11.1 compatibility
+* MATLAB R13.5 compatible
+* introduced calibration script including table lookup and runtime headphone compensation
+
+revision 1.00.1
+
+* major revision, can't put the endless list here. AFC is still completely downward compatible.
+* merged AFC, PSY and SIM into one.
+  Now different measurement procedures (transformed up down, constant stimuli).
+* added support for snd_pc (reintegrated), and soundmex
+* added language settings (EN, DE, FR, DA)
+* further enhancements for MATLAB R12 compatibility
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+revision 0.94.4
+
+* fixed window 'shine through' with MATLAB R12
+* enhanced MATLAB R12 compatibility
+* added 32-bit sound via sndmex (sndmex light included, use at own risk)
+  def.sndmex (defaults to 0)
+  def.sndmexmark (defaults to 0)
+  def.deviceID (defaults to 0) output device of multichannel soundhardware, full version of sndmex required
+* added continuous mode
+  def.continuous  0 = gated (default), 1 = add to background, 2 = multiply with bg, full version of sndmex required
+  def.bgloopwav   wav file to loop if def.continuous > 0, full version of sndmex required
+  def.bgloopwav_forcerestart   (defaults to 0)  forces restart of bgloopwav prior to each new run
+* added script for external hardware control
+  def.extern_hardware  (defaults to 0) name of m-file to control hardware, see extern_defaulthardware.m
+* added holdtrack feature to continue all tracks in an interleaved run until the last has ended
+  def.holdtrack (defaults to 0)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+revision 0.93
+
+* arbitrary numbers of exppars (def.exppar1 ... def.expparN) are now accepted.
+  def.exppar1 replaces def.exppar (both are still existing, if one is specified the other is
+  generated by the program). In future exppar1 should be used instead of exppar.
+  All def.exppars can be 'string' or 'number'.
+
+  If expparX should be of type 'string', use a cell array of strings:
+  def.expparX = {'a' 'b' 'c'}.
+  If expparY should be of type 'number', matrices are accepted (was before):
+  def.expparY = [1 2 3].
+
+  IMPORTANT: Do not use the expression def=struct('expparZ',{...}) for the cell arrays, this
+  will cause a MATLAB error.
+  
+  When using N exppars def.parrand must be a vector of length N. The i'th element of def.exppar
+  now specifies whether exppar'i' is presented in random order (def.parrand(i) = 1) or not
+  (def.parrand(i) = 0).
+
+  Example:
+  With def.exppar1 = [1 2 3], def.exppar2 = [4 5 6], def.parrand = [1 0],
+  the control file looks like that:
+
+  exppar1   exppar2
+  3         4
+  1         4
+  2         4
+  1         5
+  3         5
+  2         5
+  2         6
+  3         6
+  1         6
+
+  Changing def.parrand to [1 1] will randomize the order of blocks of exppar1 for a fixed exppar2,
+  what might look like that:
+
+  exppar1   exppar2
+  2         5
+  1         5
+  2         5
+  3         4
+  1         4
+  2         4
+  1         6
+  3         6
+  2         6
+
+  The method maintaines the same for a larger number of exppars.
+
+========================================
+
+* added block interleaving (def.interleaved = 1, def.interleavenum = # of tracks to interleave).
+  It is required to add additional rows to at least one def.exppar. Each row holds the values
+  of this parameter for a track in the interleaved run. If an exppar consists of only a single row
+  it is assumed that this parameter is intented to stay the same across tracks and the values are taken
+  as default for all interleaved tracks.
+  If def.interleavenum is different to the number of rows in any def.exppar, except it is one, an
+  error is returned.
+  
+  Example:
+  The following fields in def cause the afc procedure to measure 2 different values of exppar2
+  in an interleaved run while exppar1 is constant:
+
+  def.interleaved = 1;
+  def.interleavenum = 2;
+  def.exppar1 = [1 2 3] or {'a' 'b' 'c'};
+  def.exppar2 = [1 2 3; 4 5 6] or {'a' 'b' 'c';'d' 'e' 'f'};
+
+========================================
+
+* For developers: A number of fields in structure work changed to cell arrays.
+  work.numrun now holds the number of the current run, was work.control(1) before!
+  It is required to replace the following expressions:
+  
+  work.control(1) by work.numrun;
+  length(work.control)-1 by size(work.control,1).
+
+  A number of fields changed to cell arrays, e.g., replace:
+
+  work.answer(end) by work.answer{work.pvind}(end)
+
+========================================
+
+* The general format of the control-file is now:
+  
+  % comments generated by afc
+  % comments generated by afc
+  run#
+  track1 exppar1 ... expparN (track2 ... if interleaved)
+  .
+  .
+  .
+
+  All previous formats are also accepted.
+
+========================================
+
+* added def.ditherdepth (defaults to 0.5) and fixed dithering. Was stated to be
+  +- 0.5 LSB before, but was only +- 0.25 LSB.
+
+========================================
+
+* control_path and result_path definition requiring no backslash at the end anymore.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+revision 0.92.4
+
+* _pre script is even evaluated when signal pregeneration is disabled
+* win_function actions replaced repetitive calls to window handles from other afc scripts
+  (afc_markint still exists but is no longer called)
+* default win_function overloadable
+* extension packs loadable
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+revision 0.92.3
+
+* added pressed button marking (set def.markpressed = 1).
+* added 0.1 sec safety margin for blocking time of afc_markint.
+* added "experiment_pre" which is called only once prior to "experiment_user".
+  If signal pregeneration is enabled, one might conserve much processing time by 
+  computing trefs in the _pre file.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+revision 0.92.2
+
+* added signal pregeneration (due to Matlab restrictions only if markinterval is disabled)
+* fixed wrong bgsiglen 
+* added track termination on min/maxvar hit. Number of hits configurable (default = 6).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+revision 0.92.1
+
+* added protocol file.
+* fixed 'mean across reversal' bug.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+revision 0.90 -- 0.92
+
+* much things, don't know.

@@ -1,0 +1,95 @@
+
+=================================================
+SOUNDMEXPRO FOR AFC 
+=================================================
+
+SoundMexPro4AFC - Feature limited version for AFC.
+
+SoundMexPro is a Professional Tool for multi-channel I/O
+and real-time Processing of Audio Signals in MATLAB
+
+www.soundmexpro.de
+
+LIMITED USE AND INSTALLATION
+BY INSTALLING THE SOFTWARE (AS DEFINED BELOW) YOU (EITHER ON BEHALF OF YOURSELF AS AN INDIVIDUAL OR
+ON BEHALF OF AN ENTITY AS ITS AUTHORIZED REPRESENTATIVE) AGREE TO USE THE SOFTWARE ONLY IN THE PROVIDED
+AFC DISTRIBUTION AGREEING TO THE LICENSE GIVEN BELOW.
+To install the software unpack the included archive using the password 'smp4afc'.
+
+SYSTEM REQUIREMENTS
+SoundmexPro requires a Windows operationg system and ASIO driver (download at www.asio4all.com)
+
+LICENSE AGREEMENT
+Important- please read carefully:
+BY INSTALLING THE SOFTWARE (AS DEFINED BELOW), COPYING THE SOFTWARE AND/OR CLICKING
+ON THE "ACCEPT" BUTTON BELOW, YOU (EITHER ON BEHALF OF YOURSELF AS AN INDIVIDUAL OR
+ON BEHALF OF AN ENTITY AS ITS AUTHORIZED REPRESENTATIVE) AGREE TO ALL OF THE TERMS OF
+THIS END USER LICENSE AGREEMENT ("AGREEMENT") REGARDING YOUR USE OF THE SOFTWARE. IF
+YOU DO NOT AGREE WITH ALL OF THE TERMS OF THIS AGREEMENT, DO NOT INSTALL AND/OR USE
+THE SOFTWARE.
+
+DEFINITIONS
+The term "Software" includes all software distributed with this License including all
+documentation. The "Software" is licensed to you under the terms specified in the License Grant
+below.
+
+HIGH RISK ACTIVITIES
+The Software is not fault-tolerant and is not designed, manufactured or intended for use as online
+control equipment in hazardous environments requiring fail-safe performance, such as in the
+operation of nuclear facilities, aircraft navigation or communication systems, air traffic control,
+direct life support machines or other medical devices, or weapons systems, in which the failure
+of the Software could lead directly to death, personal injury, or severe physical or environmental
+damage ("High Risk Activities"). HörTech gGmbH and its suppliers specifically disclaim any
+express or implied warranty of fitness for High Risk Activities.
+
+OWNERSHIP AND COPYRIGHT
+This Software is owned by HörTech gGmbH or its suppliers and is protected by copyright law and
+international copyright treaty. Therefore you must treat this Software like any other copyrighted
+material. You acknowledge that no title to the intellectual property in the Software is transferred
+to you. Title, ownership, rights, and intellectual property rights in and to the Software shall
+remain in HörTech gGmbH.
+
+LICENSE GRANT
+Subject to the license terms, HörTech gGmbH hereby grants you a non-exclusive, nontransferable
+(except under the terms below) license to install and to use the Software under the
+terms of this license. Except as provided in this license agreement, you may not transfer, rent,
+lease, lend, copy, modify, translate, sublicense, time-share or electronically transmit the
+Software. You may only either make one copy of the Software solely for backup or archival
+purposes or transfer the Software to a single hard disk provided you keep the original solely for
+backup or archival purposes. You agree not to modify the Software or attempt to decipher, decompile,
+disassemble or reverse engineer the Software, except to the extent applicable laws
+specifically prohibit such restriction.
+
+LICENSE TRANSFER
+You may transfer your license and the rights granted in the license to a third party only if a) the
+third party agrees to this license agreement, b) you completely uninstall and delete all copies of
+this Software, c) all parts of the Software and its distribution are transferred to the third party and
+d) the transfer includes the current version and all prior versions of the Software.
+
+DISCLAIMER OF WARRANTY
+THIS SOFTWARE IS SOLD "AS IS" AND WITHOUT WARRANTIES AS TO PERFORMANCE OF
+MERCHANTABILITY OR ANY OTHER WARRANTIES WHETHER EXPRESSED, IMPLIED, OR STATUTORY,
+INCLUDING, BUT WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF NONINFRINGEMENT OF
+THIRD PARTY RIGHTS, MERCHANTABILITY, AND FITNESS FOR A PARTICULAR PURPOSE. GOOD DATA
+PROCESSING PROCEDURE DICTATES THAT ANY PROGRAM BE THOROUGHLY TESTED WITH NONCRITICAL
+DATA BEFORE RELYING ON IT. THE USER MUST ASSUME THE ENTIRE RISK OF USING THE
+PROGRAM. ANY LIABILITY OF THE SELLER WILL BE LIMITED EXCLUSIVELY TO PRODUCT
+REPLACEMENT OR REFUND OF PURCHASE PRICE. Under and restricted by the above terms,
+HörTech gGmbH warrants that the Software, as updated and when properly used, will perform
+substantially in accordance with its accompanying documentation, and the Software media will
+be free from defects in materials and workmanship. The limited warranty is void if the Software
+fails as a result of accident, abuse, misapplication or modification. LIMITATION OF LIABILITY You
+must assume the entire risk of using the Software. IN NO EVENT SHALL HörTech gGmbH BE LIABLE
+TO YOU FOR ANY DAMAGES, INCLUDING ANY LOST PROFITS, LOST SAVINGS, OR OTHER
+INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND ARISING OUT OF THE USE OF
+THE HörTech gGmbH's SOFTWARE, EVEN IF HörTech gGmbH HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES. IN NO EVENT WILL HörTech gGmbH's LIABILITY FOR ANY CLAIM,
+WHETHER IN CONTRACT, TORT, OR ANY OTHER THEORY OF LIABILITY, EXCEED THE LICENSE FEE
+PAID BY YOU. THIS LIMITATION SHALL APPLY TO CLAIMS OF PERSONAL INJURY TO THE EXTENT
+PERMITTED BY LAW.
+
+LIBSNDFILE LICENSE
+SoundMexPro uses the libsndfile library written by Erik de Castro Lopo and others
+(http://www.mega-nerd.com/libsndfile/). It is published under the GNU Lesser General Public
+License (LGPL) either version 2.1 or optionally version 3 (see files libsndfile_lgpl_v2_1.txt and
+libsndfile_lgpl_v3.txt shipped with SoundMexPro).
